@@ -8,9 +8,50 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ca.ualberta.cs.jkeeling.a1todolist.MainActivity" >
 
-    <TextView
+    <Button
+        android:id="@+id/AddButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/AddTextBox"
+        android:text="@string/Add" />
+
+    <EditText
+        android:id="@+id/AddTextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/AddButton"
+        android:layout_alignBottom="@+id/AddButton"
+        android:layout_alignRight="@+id/EmailSelector"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/AddBox" />
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ArchiveSelector"
+        android:layout_alignLeft="@+id/AddButton"
+        android:layout_below="@+id/AddButton" >
+
+    </ListView>
+
+    <Button
+        android:id="@+id/EmailSelector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ArchiveSelector"
+        android:layout_alignBottom="@+id/ArchiveSelector"
+        android:layout_alignParentRight="true"
+        android:text="@string/EmailOptions" />
+
+    <Button
+        android:id="@+id/ArchiveSelector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/EmailSelector"
+        android:text="@string/ArchiveOptions" />
 
 </RelativeLayout>
