@@ -25,15 +25,17 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int AddButton=0x7f080001;
-        public static final int AddTextBox=0x7f080003;
-        public static final int ArchiveSelector=0x7f080000;
-        public static final int EmailSelector=0x7f080002;
-        public static final int action_settings=0x7f080005;
-        public static final int listView1=0x7f080004;
+        public static final int AddButton=0x7f080000;
+        public static final int AddTextBox=0x7f080001;
+        public static final int OptionsButton=0x7f080003;
+        public static final int TDList=0x7f080002;
+        public static final int action_settings=0x7f080006;
+        public static final int checkBox=0x7f080004;
+        public static final int textView=0x7f080005;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
+        public static final int item_row=0x7f030001;
     }
     public static final class menu {
         public static final int main=0x7f070000;
@@ -41,8 +43,7 @@ public final class R {
     public static final class string {
         public static final int Add=0x7f050003;
         public static final int AddBox=0x7f050004;
-        public static final int ArchiveOptions=0x7f050005;
-        public static final int EmailOptions=0x7f050006;
+        public static final int Options=0x7f050005;
         public static final int action_settings=0x7f050002;
         public static final int app_name=0x7f050000;
         public static final int hello_world=0x7f050001;
