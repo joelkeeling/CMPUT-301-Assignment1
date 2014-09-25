@@ -123,6 +123,31 @@ public class MainActivity extends Activity {
 		popup.show();
 	}
 	
+	public void toSummary(MenuItem i){
+		
+	}
+	
+	public void toArchive(MenuItem i){
+		
+	}
+	
+	public void toSelector(MenuItem i){
+		if (i.getTitle().equals("Select for Archive")){
+			openSelector("archive");
+		}
+		else if(i.getTitle().equals("Select for Email")){
+			openSelector("email");
+		}
+	}
+	
+	public void archiveAll(MenuItem i){
+		
+	}
+	
+	public void emailAll(MenuItem i){
+		
+	}
+	
 	public void Delete(View v){
 		View parent = (View)v.getParent();			
 		CustomTextView text = (CustomTextView) parent.findViewById(R.id.textView);

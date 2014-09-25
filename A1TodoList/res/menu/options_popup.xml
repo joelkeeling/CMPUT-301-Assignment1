@@ -2,21 +2,27 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
    <item
        android:id="@+id/Summary"
-       android:title="@string/summary"/>
+       android:title="@string/summary"
+       android:onClick="toSummary"/>
    <item
        android:id="@+id/Archive"
-       android:title="@string/archive"/> 
+       android:title="@string/archive"
+       android:onClick="toArchive"/> 
    <item
        android:id="@+id/SelectArchive"
-       android:title="@string/select_archive"/>
-   <item
-       android:id="@+id/AllArchive"
-       android:title="@string/all_archive"/>
+       android:title="@string/select_archive"
+       android:onClick="toSelector"/>
    <item
        android:id="@+id/SelectEmail"
-       android:title="@string/select_archive"/>
+       android:title="@string/select_archive"
+       android:onClick="toSelector"/>
+   <item
+       android:id="@+id/AllArchive"
+       android:title="@string/all_archive"
+       android:onClick="archiveAll"/>   
    <item
        android:id="@+id/AllEmail"
-       android:title="@string/all_email"/>    
+       android:title="@string/all_email"
+       android:onClick="emailAll"/>    
 
 </menu>
