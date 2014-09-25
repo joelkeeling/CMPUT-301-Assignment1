@@ -20,6 +20,17 @@
         android:layout_toRightOf="@+id/checkBox"
         android:text="TextView"
         android:clickable="true"
+         />
+
+    <Button
+        android:id="@+id/deleteButton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="X"
         android:onClick="Delete" />
 
 </RelativeLayout>

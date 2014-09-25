@@ -5,13 +5,17 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import android.widget.PopupMenu;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -20,11 +24,14 @@ public class MainActivity extends Activity {
 	private List<TDItem> allItemsList = new ArrayList<TDItem>();
 	private EditText textBox; 
 	private ItemAdapter adapter; 
+	private Button optionsBtn;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		textBox = (EditText) findViewById(R.id.AddTextBox);
+		optionsBtn = (Button) findViewById(R.id.OptionsButton);
+		
 		GenerateTDList();
 	}
 
@@ -87,14 +94,19 @@ public class MainActivity extends Activity {
 			}
 			else {
 				holder = (ViewHolder) convertView.getTag();
-			}
+			}			
 			TDItem item = itemList.get(position);
 			holder.name.setText(item.getName());
 			holder.name.setUId(item.getId());
 			
 			return convertView;
-		}
-		
+		}		
+	}
+	
+	public void openSelector(String selectorType){
+		Intent intent = new Intent(this, SelectorActivity.class);
+		intent.putExtra("SELECTOR_TYPE", selectorType);
+		startActivity(intent);
 	}
 	
 	public void Add(View v){
@@ -104,8 +116,16 @@ public class MainActivity extends Activity {
 		adapter.notifyDataSetChanged();
 		textBox.setText("");			
 	}
+	
+	public void OptionsMenu(View v){
+		PopupMenu popup = new PopupMenu(this, optionsBtn);
+		popup.getMenuInflater().inflate(R.menu.options_popup, popup.getMenu());
+		popup.show();
+	}
+	
 	public void Delete(View v){
-		CustomTextView text = (CustomTextView) v;
+		View parent = (View)v.getParent();			
+		CustomTextView text = (CustomTextView) parent.findViewById(R.id.textView);
 		String uId = (String) text.getUId();
 		TDItem target = null;
 		for (TDItem item : allItemsList){
