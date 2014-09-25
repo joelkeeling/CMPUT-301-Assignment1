@@ -21,7 +21,15 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>       
+        </activity>
+        <activity
+            android:name=".SummaryActivity"
+            android:label="@string/title_activity_summary" >
+        </activity>
+        <activity
+            android:name=".ArchiveActivity"
+            android:label="@string/title_activity_archive" >
+        </activity>
     </application>
 
 </manifest>

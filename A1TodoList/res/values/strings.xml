@@ -13,5 +13,7 @@
     <string name="select_archive">Archive Selected</string>
     <string name="select_email">Email Selected</string>
     <string name="all_email">Email All</string>
+    <string name="title_activity_summary">Summary</string>
+    <string name="title_activity_archive">Archived Items</string>
 
 </resources>
