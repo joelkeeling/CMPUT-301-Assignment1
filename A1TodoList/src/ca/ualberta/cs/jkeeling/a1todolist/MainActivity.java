@@ -2,6 +2,8 @@ package ca.ualberta.cs.jkeeling.a1todolist;
 import java.util.ArrayList;
 import java.util.List;
 
+import ca.ualberta.cs.jkeeling.a1todolist.Adapter.ItemAdapter;
+
 
 import android.app.Activity;
 import android.content.Context;
@@ -65,43 +67,7 @@ public class MainActivity extends Activity {
 				
 	}
 	
-	private class ViewHolder {
-		   CustomTextView name;
-		   CheckBox box;
-		  }	
 	
-	public class ItemAdapter extends ArrayAdapter<TDItem> {
-		private List<TDItem> itemList;
-		public ItemAdapter(Context context, int resource, List<TDItem> itemList) {
-			super(context, resource, itemList);
-			this.itemList = itemList;
-			// TODO Auto-generated constructor stub
-		}
-		
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent){
-			//Used createViewFromResource + blog
-			ViewHolder holder = null;
-			
-			if (convertView == null){
-				LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-				convertView = vi.inflate(R.layout.item_row, null);
-				holder = new ViewHolder();
-				holder.name = (CustomTextView) convertView.findViewById(R.id.textView);
-			    holder.box = (CheckBox) convertView.findViewById(R.id.checkBox);
-				convertView.setTag(holder);
-					 
-			}
-			else {
-				holder = (ViewHolder) convertView.getTag();
-			}			
-			TDItem item = itemList.get(position);
-			holder.name.setText(item.getName());
-			holder.name.setUId(item.getId());
-			
-			return convertView;
-		}		
-	}
 	
 	public void openSelector(String selectorType){
 		Intent intent = new Intent(this, SelectorActivity.class);

@@ -27,12 +27,12 @@ public final class R {
     public static final class id {
         public static final int AddButton=0x7f080003;
         public static final int AddTextBox=0x7f080001;
-        public static final int AllArchive=0x7f08000e;
+        public static final int AllArchive=0x7f08000f;
         public static final int AllEmail=0x7f080010;
         public static final int Archive=0x7f08000c;
         public static final int OptionsButton=0x7f080000;
         public static final int SelectArchive=0x7f08000d;
-        public static final int SelectEmail=0x7f08000f;
+        public static final int SelectEmail=0x7f08000e;
         public static final int Summary=0x7f08000b;
         public static final int TDList=0x7f080002;
         public static final int action_settings=0x7f08000a;
