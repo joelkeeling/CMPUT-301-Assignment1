@@ -10,7 +10,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"        
         android:text=""
-        android:onClick="check" />
+        android:onClick="check" />       
 
     <ca.ualberta.cs.jkeeling.a1todolist.CustomTextView
         android:id="@+id/textView"
@@ -18,20 +18,20 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/checkBox"
         android:layout_alignBottom="@+id/checkBox"
-        android:layout_toRightOf="@+id/checkBox"
-        android:text="TextView"
+        android:layout_centerHorizontal="true"
         android:clickable="true"
-         />
-
+        android:onClick="select"
+        android:text="TextView" />
+    
     <Button
         android:id="@+id/deleteButton"
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="33dp"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:text="X"
-        android:onClick="Delete" />
+        android:onClick="Delete" />  
 
 </RelativeLayout>

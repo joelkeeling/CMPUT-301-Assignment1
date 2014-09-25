@@ -37,7 +37,7 @@ public class ItemAdapter extends ArrayAdapter<TDItem> {
 		if (convertView == null){
 			LayoutInflater vi = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			convertView = vi.inflate(R.layout.item_row, null);
-			holder = new ViewHolder();
+			holder = new ViewHolder();						
 			holder.name = (CustomTextView) convertView.findViewById(R.id.textView);
 		    holder.box = (CheckBox) convertView.findViewById(R.id.checkBox);
 			convertView.setTag(holder);

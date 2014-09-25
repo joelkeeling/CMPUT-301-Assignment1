@@ -11,8 +11,8 @@
     <string name="archive">Go to Archive</string>
     <string name="summary">Summary</string>
     <string name="all_archive">Archive All</string>
-    <string name="select_archive">Select for Archive</string>
-    <string name="select_email">Select for Email</string>
+    <string name="select_archive">Archive Selected</string>
+    <string name="select_email">Email Selected</string>
     <string name="all_email">Email All</string>
 
 </resources>

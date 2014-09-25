@@ -8,6 +8,7 @@ import ca.ualberta.cs.jkeeling.a1todolist.adapters.ItemAdapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -67,8 +68,7 @@ public class MainActivity extends Activity {
 		ListView listView = (ListView) findViewById(R.id.TDList);
 		listView.setAdapter(adapter);
 				
-	}
-	
+	}	
 	
 	
 	public void openSelector(String selectorType){
@@ -127,6 +127,16 @@ public class MainActivity extends Activity {
 		TDItem target = getTargetItem(v);
 		CheckBox checkbox = (CheckBox)v;
 		checkbox.setChecked(target.toggleChecked());
+	}
+	
+	public void select(View v){
+		TDItem target = getTargetItem(v);
+		if (target.toggleSelected() == true){
+			((View)v.getParent()).setBackgroundColor(Color.rgb(255, 153, 0));
+		}
+		else {
+			((View)v.getParent()).setBackgroundColor(Color.WHITE);
+		}
 	}
 	
 	public TDItem getTargetItem(View v){
