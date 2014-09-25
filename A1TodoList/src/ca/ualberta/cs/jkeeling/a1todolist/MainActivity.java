@@ -79,9 +79,9 @@ public class MainActivity extends Activity {
 	
 	
 	public void openSelector(String selectorType){
-		Intent intent = new Intent(this, SelectorActivity.class);
-		intent.putExtra("SELECTOR_TYPE", selectorType);
-		startActivity(intent);
+		//Intent intent = new Intent(this, SelectorActivity.class);
+		//intent.putExtra("SELECTOR_TYPE", selectorType);
+		//startActivity(intent);
 	}
 	
 	public void Add(View v){
