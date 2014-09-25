@@ -1,4 +1,4 @@
-package ca.ualberta.cs.jkeeling.a1todolist.Adapter;
+package ca.ualberta.cs.jkeeling.a1todolist.adapters;
 
 import java.util.List;
 
@@ -49,6 +49,7 @@ public class ItemAdapter extends ArrayAdapter<TDItem> {
 		TDItem item = itemList.get(position);
 		holder.name.setText(item.getName());
 		holder.name.setUId(item.getId());
+		holder.box.setChecked(item.getChecked());
 		
 		return convertView;
 	}		

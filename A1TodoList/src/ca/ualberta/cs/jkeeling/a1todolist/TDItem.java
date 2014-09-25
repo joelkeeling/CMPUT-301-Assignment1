@@ -23,6 +23,28 @@ public class TDItem {
 		return this.checked;
 	}
 	
+	public boolean toggleChecked(){
+		if (this.checked == true){
+			this.checked = false;
+			return false;
+		}
+		else {
+			this.checked = true;
+			return true;
+		}
+	}
+	
+	public boolean toggleSelected(){
+		if (this.selected == true){
+			this.selected = false;
+			return false;
+		}
+		else {
+			this.selected = true;
+			return true;
+		}
+	}
+	
 	public void setSelected(boolean bool){
 		this.selected = bool;
 	}
