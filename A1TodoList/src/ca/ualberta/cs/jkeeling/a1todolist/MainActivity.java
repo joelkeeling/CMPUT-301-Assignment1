@@ -117,6 +117,13 @@ public class MainActivity extends Activity {
 		return selectedItemsList;
 	}
 	
+	public void archiveAll(MenuItem i){
+		for (TDItem item : activeItemsList){
+			item.setSelected(true);
+		}
+		archiveSelected(i);
+	}
+	
 	public void archiveSelected(MenuItem i){
 		List<TDItem> itemList = getSelected();
 		for (TDItem item : itemList){
@@ -133,11 +140,7 @@ public class MainActivity extends Activity {
 		else if(i.getTitle().equals("Select for Email")){
 			openSelector("email");
 		}
-	}
-	
-	public void archiveAll(MenuItem i){
-		
-	}
+	}	
 	
 	public void emailAll(MenuItem i){
 		
