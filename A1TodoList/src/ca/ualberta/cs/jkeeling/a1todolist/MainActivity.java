@@ -66,9 +66,9 @@ public class MainActivity extends Activity {
 		item.setSelected(true);
 		allItemsList.add(item);
 		for (TDItem tdItem : allItemsList){
-			//if (tdItem.archiveState() == false){
-			//	activeItemsList.add(item);
-			//}
+			if (tdItem.getArchiveState() == false){
+				activeItemsList.add(item);
+			}
 		}
 		//Set adapter
 		adapter = new ItemAdapter(this, R.layout.item_row, activeItemsList);		
@@ -105,6 +105,25 @@ public class MainActivity extends Activity {
 	
 	public void toArchive(MenuItem i){
 		
+	}
+	
+	public List<TDItem> getSelected(){
+		List<TDItem> selectedItemsList = new ArrayList<TDItem>();
+		for (TDItem item : activeItemsList){
+			if (item.getSelected() == true){
+				selectedItemsList.add(item);
+			}
+		}
+		return selectedItemsList;
+	}
+	
+	public void archiveSelected(MenuItem i){
+		List<TDItem> itemList = getSelected();
+		for (TDItem item : itemList){
+			item.archive();
+			activeItemsList.remove(item);
+		}
+		adapter.notifyDataSetChanged();
 	}
 	
 	public void toSelector(MenuItem i){

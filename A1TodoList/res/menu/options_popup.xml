@@ -11,7 +11,7 @@
    <item
        android:id="@+id/SelectArchive"
        android:title="@string/select_archive"
-       android:onClick="toSelector"/>
+       android:onClick="archiveSelected"/>
    <item
        android:id="@+id/SelectEmail"
        android:title="@string/select_email"

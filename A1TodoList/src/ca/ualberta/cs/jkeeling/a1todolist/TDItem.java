@@ -3,6 +3,7 @@ package ca.ualberta.cs.jkeeling.a1todolist;
 import java.util.UUID;
 
 public class TDItem {
+	private boolean archived;
 	private boolean checked;
 	private boolean selected;
 	private String name;	
@@ -12,6 +13,7 @@ public class TDItem {
 		this.name = name;
 		this.checked = false;
 		this.selected = false;
+		this.archived = false;
 		this.id = UUID.randomUUID().toString();
 	}
 	
@@ -63,5 +65,17 @@ public class TDItem {
 	
 	public String getId(){
 		return this.id;
+	}
+	
+	public void archive(){
+		this.archived = true;
+	}
+	
+	public void unArchive(){
+		this.archived = false;
+	}
+	
+	public boolean getArchiveState(){
+		return this.archived;
 	}
 }
