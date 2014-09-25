@@ -24,6 +24,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 public class MainActivity extends Activity {
+	private List<TDItem> activeItemsList = new ArrayList<TDItem>();
 	private List<TDItem> allItemsList = new ArrayList<TDItem>();
 	private EditText textBox; 
 	private ItemAdapter adapter; 
@@ -62,9 +63,15 @@ public class MainActivity extends Activity {
 		//for testing!
 		TDItem item = new TDItem("Test");
 		item.setChecked(true);
+		item.setSelected(true);
 		allItemsList.add(item);
+		for (TDItem tdItem : allItemsList){
+			//if (tdItem.archiveState() == false){
+			//	activeItemsList.add(item);
+			//}
+		}
 		//Set adapter
-		adapter = new ItemAdapter(this, R.layout.item_row, allItemsList);		
+		adapter = new ItemAdapter(this, R.layout.item_row, activeItemsList);		
 		ListView listView = (ListView) findViewById(R.id.TDList);
 		listView.setAdapter(adapter);
 				
@@ -80,7 +87,7 @@ public class MainActivity extends Activity {
 	public void Add(View v){
 		String text = textBox.getText().toString();
 		TDItem item = new TDItem(text);
-		allItemsList.add(item);		
+		activeItemsList.add(item);		
 		adapter.notifyDataSetChanged();
 		textBox.setText("");
 		
@@ -119,7 +126,7 @@ public class MainActivity extends Activity {
 	
 	public void Delete(View v){
 		TDItem target = getTargetItem(v);
-		allItemsList.remove(target);
+		activeItemsList.remove(target);
 		adapter.notifyDataSetChanged();
 	}
 	
@@ -144,7 +151,7 @@ public class MainActivity extends Activity {
 		CustomTextView text = (CustomTextView) parent.findViewById(R.id.textView);
 		String uId = (String) text.getUId();
 		TDItem target = null;
-		for (TDItem item : allItemsList){
+		for (TDItem item : activeItemsList){
 			if (item.getId().equals(uId)){
 				target = item;
 			}

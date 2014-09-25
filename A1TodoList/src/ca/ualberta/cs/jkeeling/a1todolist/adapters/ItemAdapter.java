@@ -3,6 +3,7 @@ package ca.ualberta.cs.jkeeling.a1todolist.adapters;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +51,12 @@ public class ItemAdapter extends ArrayAdapter<TDItem> {
 		holder.name.setText(item.getName());
 		holder.name.setUId(item.getId());
 		holder.box.setChecked(item.getChecked());
-		
+		if (item.getSelected() == true){
+			convertView.setBackgroundColor(Color.rgb(255, 153, 0));
+		}
+		else {
+			convertView.setBackgroundColor(Color.WHITE);
+		}
 		return convertView;
 	}		
 }
