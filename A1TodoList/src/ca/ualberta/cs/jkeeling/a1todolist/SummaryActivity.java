@@ -6,10 +6,13 @@ import java.util.List;
 import ca.ualberta.cs.jkeeling.a1todolist.data.FileDataManager;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 public class SummaryActivity extends Activity {	
@@ -24,12 +27,14 @@ public class SummaryActivity extends Activity {
 	private TextView archived;
 	private TextView archivedChecked;
 	private TextView archivedUnchecked;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_summary);
 		fdm = new FileDataManager(this.getApplicationContext());
+		optionsBtn = (Button) findViewById(R.id.OptionsButton);
 		active = (TextView) findViewById(R.id.active);
 		activeChecked = (TextView) findViewById(R.id.activeChecked);
 		activeUnchecked= (TextView) findViewById(R.id.activeUnchecked);
@@ -106,4 +111,19 @@ public class SummaryActivity extends Activity {
 		archivedUnchecked.setText("Archived items incomplete: " + uCounter.toString());		
 	}
 	
+	public void toMain(MenuItem i){
+		Intent intent = new Intent(this, MainActivity.class);		
+		startActivity(intent);
+	}
+	
+	public void toArchive(MenuItem i){
+		Intent intent = new Intent(this, ArchiveActivity.class);		
+		startActivity(intent);
+	}
+	
+	public void OptionsMenu(View v){
+		PopupMenu popup = new PopupMenu(this, optionsBtn);
+		popup.getMenuInflater().inflate(R.menu.summary_options_popup, popup.getMenu());
+		popup.show();
+	}
 }

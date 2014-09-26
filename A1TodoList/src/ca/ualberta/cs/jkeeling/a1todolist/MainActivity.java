@@ -2,8 +2,6 @@ package ca.ualberta.cs.jkeeling.a1todolist;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 import ca.ualberta.cs.jkeeling.a1todolist.adapters.ItemAdapter;
 import ca.ualberta.cs.jkeeling.a1todolist.data.FileDataManager;
 import android.app.Activity;
