@@ -18,33 +18,12 @@
         android:text="@string/options"
         android:onClick="OptionsMenu" />
 
-    <EditText
-        android:id="@+id/AddTextBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/TDList"
-        android:ems="10"
-        android:inputType="text"
-        android:maxLength="22"
-        android:text="@string/add_box" />
-
-    <Button
-        android:id="@+id/AddButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/AddTextBox"
-        android:layout_alignBottom="@+id/AddTextBox"
-        android:layout_alignLeft="@+id/TDList"
-        android:onClick="Add"
-        android:text="@string/add" />
-
     <ListView
-        android:id="@+id/TDList"
+        android:id="@+id/ArchiveList"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_above="@+id/AddButton"
         android:layout_alignLeft="@+id/OptionsButton"
+        android:layout_alignParentBottom="true"
         android:layout_below="@+id/OptionsButton"
         android:layout_marginTop="18dp" >
 

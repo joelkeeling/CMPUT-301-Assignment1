@@ -25,25 +25,29 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int AddButton=0x7f080003;
-        public static final int AddTextBox=0x7f080001;
-        public static final int AllArchive=0x7f080011;
-        public static final int AllEmail=0x7f080012;
-        public static final int Archive=0x7f08000e;
+        public static final int AddButton=0x7f080004;
+        public static final int AddTextBox=0x7f080002;
+        public static final int AllArchive=0x7f080016;
+        public static final int AllEmail=0x7f080013;
+        public static final int AllUarchive=0x7f080012;
+        public static final int Archive=0x7f080014;
+        public static final int ArchiveList=0x7f080001;
+        public static final int Main=0x7f08000f;
         public static final int OptionsButton=0x7f080000;
-        public static final int SelectArchive=0x7f08000f;
-        public static final int SelectEmail=0x7f080010;
-        public static final int Summary=0x7f08000d;
-        public static final int TDList=0x7f080002;
-        public static final int action_settings=0x7f08000c;
-        public static final int checkBox=0x7f080009;
-        public static final int deleteButton=0x7f08000b;
-        public static final int textView=0x7f08000a;
-        public static final int textView1=0x7f080004;
-        public static final int textView2=0x7f080006;
-        public static final int textView3=0x7f080005;
-        public static final int textView4=0x7f080007;
-        public static final int textView5=0x7f080008;
+        public static final int SelectArchive=0x7f080015;
+        public static final int SelectEmail=0x7f080011;
+        public static final int SelectUnarchive=0x7f080010;
+        public static final int Summary=0x7f08000e;
+        public static final int TDList=0x7f080003;
+        public static final int action_settings=0x7f08000d;
+        public static final int activeChecked=0x7f080005;
+        public static final int activeUnchecked=0x7f080006;
+        public static final int archived=0x7f080007;
+        public static final int archivedChecked=0x7f080008;
+        public static final int archivedUnchecked=0x7f080009;
+        public static final int checkBox=0x7f08000a;
+        public static final int deleteButton=0x7f08000c;
+        public static final int textView=0x7f08000b;
     }
     public static final class layout {
         public static final int activity_archive=0x7f030000;
@@ -54,9 +58,10 @@ public final class R {
     }
     public static final class menu {
         public static final int archive=0x7f070000;
-        public static final int main=0x7f070001;
-        public static final int options_popup=0x7f070002;
-        public static final int summary=0x7f070003;
+        public static final int archive_options_popup=0x7f070001;
+        public static final int main=0x7f070002;
+        public static final int main_options_popup=0x7f070003;
+        public static final int summary=0x7f070004;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
@@ -64,12 +69,15 @@ public final class R {
         public static final int add_box=0x7f050003;
         public static final int all_archive=0x7f050008;
         public static final int all_email=0x7f05000b;
+        public static final int all_unarchive=0x7f05000e;
         public static final int app_name=0x7f050000;
         public static final int archive=0x7f050006;
         public static final int done_btn=0x7f050005;
+        public static final int main=0x7f050010;
         public static final int options=0x7f050004;
         public static final int select_archive=0x7f050009;
         public static final int select_email=0x7f05000a;
+        public static final int select_unarchive=0x7f05000f;
         public static final int summary=0x7f050007;
         public static final int title_activity_archive=0x7f05000d;
         public static final int title_activity_summary=0x7f05000c;

@@ -1,8 +1,9 @@
 package ca.ualberta.cs.jkeeling.a1todolist;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public class TDItem {
+public class TDItem implements Serializable{
 	private boolean archived;
 	private boolean checked;
 	private boolean selected;
@@ -44,7 +45,7 @@ public class TDItem {
 		else {
 			this.selected = true;
 			return true;
-		}
+		}		
 	}
 	
 	public void setSelected(boolean bool){
@@ -71,7 +72,7 @@ public class TDItem {
 		this.archived = true;
 	}
 	
-	public void unArchive(){
+	public void unarchive(){
 		this.archived = false;
 	}
 	

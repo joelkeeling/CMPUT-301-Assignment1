@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+	<item
+       android:id="@+id/Summary"
+       android:title="@string/summary"
+       android:onClick="toSummary"/>
+    <item
+       android:id="@+id/Main"
+       android:title="@string/main"
+       android:onClick="toMain"/> 
+    <item
+       android:id="@+id/SelectUnarchive"
+       android:title="@string/select_unarchive"
+       android:onClick="unarchiveSelected"/>
+    <item
+       android:id="@+id/SelectEmail"
+       android:title="@string/select_email"
+       android:onClick="toSummary"/>
+    <item
+       android:id="@+id/AllUarchive"
+       android:title="@string/all_unarchive"
+       android:onClick="unarchiveAll"/>   
+    <item
+       android:id="@+id/AllEmail"
+       android:title="@string/all_email"
+       android:onClick="toSummary"/>  
+       
+</menu>

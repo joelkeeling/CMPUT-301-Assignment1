@@ -95,7 +95,7 @@ public class MainActivity extends Activity {
 	
 	public void OptionsMenu(View v){
 		PopupMenu popup = new PopupMenu(this, optionsBtn);
-		popup.getMenuInflater().inflate(R.menu.options_popup, popup.getMenu());
+		popup.getMenuInflater().inflate(R.menu.main_options_popup, popup.getMenu());
 		popup.show();
 	}
 	
@@ -104,7 +104,8 @@ public class MainActivity extends Activity {
 	}
 	
 	public void toArchive(MenuItem i){
-		
+		Intent intent = new Intent(this, ArchiveActivity.class);		
+		startActivity(intent);
 	}
 	
 	public List<TDItem> getSelected(){
@@ -172,7 +173,7 @@ public class MainActivity extends Activity {
 		View parent = (View)v.getParent();			
 		CustomTextView text = (CustomTextView) parent.findViewById(R.id.textView);
 		String uId = (String) text.getUId();
-		TDItem target = null;
+		TDItem target = null;		
 		for (TDItem item : activeItemsList){
 			if (item.getId().equals(uId)){
 				target = item;
