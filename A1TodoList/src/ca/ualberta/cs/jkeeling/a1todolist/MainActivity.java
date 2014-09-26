@@ -97,8 +97,16 @@ public class MainActivity extends Activity {
 	}
 	
 	public void toArchive(MenuItem i){
+		unSelectAll();
 		Intent intent = new Intent(this, ArchiveActivity.class);		
 		startActivity(intent);
+	}
+	
+	public void unSelectAll(){
+		for (TDItem item : allItemsList){
+			item.setSelected(false);
+		}
+		fdm.saveItems(allItemsList);
 	}
 	
 	public List<TDItem> getSelected(){

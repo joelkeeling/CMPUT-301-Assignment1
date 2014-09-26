@@ -8,6 +8,7 @@ import ca.ualberta.cs.jkeeling.a1todolist.data.FileDataManager;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -98,6 +99,23 @@ public class ArchiveActivity extends Activity {
 			item.setSelected(true);
 		}
 		unarchiveSelected(i);
+	}
+	
+	public void unSelectAll(){
+		for (TDItem item : allItemsList){
+			item.setSelected(false);
+		}
+	}
+	
+	public void select(View v){
+		TDItem target = getTargetItem(v);
+		if (target.toggleSelected() == true){
+			((View)v.getParent()).setBackgroundColor(Color.rgb(255, 153, 0));
+		}
+		else {
+			((View)v.getParent()).setBackgroundColor(Color.WHITE);
+		}
+		fdm.saveItems(allItemsList);
 	}
 	
 	public void unarchiveSelected(MenuItem i){

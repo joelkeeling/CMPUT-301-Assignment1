@@ -9,8 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"        
-        android:text=""
-        android:onClick="check" 
+        android:text=""        
         android:clickable="false"/>       
 
     <ca.ualberta.cs.jkeeling.a1todolist.CustomTextView

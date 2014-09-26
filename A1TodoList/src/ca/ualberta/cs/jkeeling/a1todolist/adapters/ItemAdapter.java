@@ -20,10 +20,12 @@ import ca.ualberta.cs.jkeeling.a1todolist.R.layout;
 public class ItemAdapter extends ArrayAdapter<TDItem> {
 	private List<TDItem> itemList;
 	private Context context;
+	private int resource;
 	public ItemAdapter(Context context, int resource, List<TDItem> itemList) {
 		super(context, resource, itemList);
 		this.context = context;
 		this.itemList = itemList;
+		this.resource = resource;
 		// TODO Auto-generated constructor stub
 	}
 	private class ViewHolder {
@@ -37,7 +39,7 @@ public class ItemAdapter extends ArrayAdapter<TDItem> {
 		
 		if (convertView == null){
 			LayoutInflater vi = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			convertView = vi.inflate(R.layout.item_row, null);
+			convertView = vi.inflate(this.resource, null);
 			holder = new ViewHolder();						
 			holder.name = (CustomTextView) convertView.findViewById(R.id.textView);
 		    holder.box = (CheckBox) convertView.findViewById(R.id.checkBox);
