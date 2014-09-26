@@ -35,6 +35,14 @@ public class TDItem implements Serializable{
 			this.checked = true;
 			return true;
 		}
+	}	
+	
+	public void setSelected(boolean bool){
+		this.selected = bool;
+	}
+	
+	public boolean getSelected(){
+		return this.selected;
 	}
 	
 	public boolean toggleSelected(){
@@ -46,14 +54,6 @@ public class TDItem implements Serializable{
 			this.selected = true;
 			return true;
 		}		
-	}
-	
-	public void setSelected(boolean bool){
-		this.selected = bool;
-	}
-	
-	public boolean getSelected(){
-		return this.selected;
 	}
 	
 	public void setName(String name){
