@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import ca.ualberta.cs.jkeeling.a1todolist.R;
-import ca.ualberta.cs.jkeeling.a1todolist.R.id;
-import ca.ualberta.cs.jkeeling.a1todolist.R.layout;
 import ca.ualberta.cs.jkeeling.a1todolist.models.CustomTextView;
 import ca.ualberta.cs.jkeeling.a1todolist.models.TDItem;	
 

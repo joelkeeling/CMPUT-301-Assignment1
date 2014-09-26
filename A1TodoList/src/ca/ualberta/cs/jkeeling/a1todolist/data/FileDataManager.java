@@ -25,6 +25,7 @@ public class FileDataManager implements IDataManager{
 			FileInputStream fis = new FileInputStream(filename);
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			items = (ArrayList<TDItem>) ois.readObject();
+			ois.close();
 		} catch (Exception e) {
 			Log.i("LonelyTwitter", "Error casting");
 			e.printStackTrace();
