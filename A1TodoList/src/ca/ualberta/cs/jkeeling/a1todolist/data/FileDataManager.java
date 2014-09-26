@@ -11,7 +11,7 @@ import java.util.List;
 import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
-import ca.ualberta.cs.jkeeling.a1todolist.TDItem;
+import ca.ualberta.cs.jkeeling.a1todolist.models.TDItem;
 
 public class FileDataManager implements IDataManager{
 	private String filename;

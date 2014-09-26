@@ -12,7 +12,7 @@
         android:text=""        
         android:clickable="false"/>       
 
-    <ca.ualberta.cs.jkeeling.a1todolist.CustomTextView
+    <ca.ualberta.cs.jkeeling.a1todolist.models.CustomTextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

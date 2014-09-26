@@ -4,6 +4,8 @@ import java.util.List;
 
 import ca.ualberta.cs.jkeeling.a1todolist.adapters.ItemAdapter;
 import ca.ualberta.cs.jkeeling.a1todolist.data.FileDataManager;
+import ca.ualberta.cs.jkeeling.a1todolist.models.CustomTextView;
+import ca.ualberta.cs.jkeeling.a1todolist.models.TDItem;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -167,6 +169,7 @@ public class MainActivity extends Activity {
 				}
 					
 			}
+			item.setSelected(false);
 		}
 		
 		sendEmail(bodyText);

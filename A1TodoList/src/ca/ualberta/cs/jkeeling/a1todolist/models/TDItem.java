@@ -1,4 +1,4 @@
-package ca.ualberta.cs.jkeeling.a1todolist;
+package ca.ualberta.cs.jkeeling.a1todolist.models;
 
 import java.io.Serializable;
 import java.util.UUID;

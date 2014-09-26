@@ -5,6 +5,8 @@ import java.util.List;
 
 import ca.ualberta.cs.jkeeling.a1todolist.adapters.ItemAdapter;
 import ca.ualberta.cs.jkeeling.a1todolist.data.FileDataManager;
+import ca.ualberta.cs.jkeeling.a1todolist.models.CustomTextView;
+import ca.ualberta.cs.jkeeling.a1todolist.models.TDItem;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -166,7 +168,7 @@ public class ArchiveActivity extends Activity {
 					}
 					bodyText = bodyText + item.getName() + "/n";
 				}
-					
+				item.setSelected(false);	
 			}
 		}
 		bodyText = bodyText + "\nArchived Items:\n";
@@ -180,6 +182,7 @@ public class ArchiveActivity extends Activity {
 				}
 				bodyText = bodyText + item.getName() + "\n";					
 			}
+			item.setSelected(false);
 		}	
 		
 		sendEmail(bodyText);
