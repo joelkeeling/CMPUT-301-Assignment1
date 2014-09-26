@@ -19,6 +19,10 @@ Subject: Data Management + General design
 Author: Victor Guana
 Source: https://github.com/guana/LonelyTwitter3
 
+Subject: Email
+Author: fiXedd(http://stackoverflow.com/users/76835/fixedd)
+Source: http://stackoverflow.com/questions/2197741/how-can-i-send-emails-from-my-android-application
+
 Subject: System Storage
 Source:http://developer.android.com/guide/topics/data/data-storage.html
 
