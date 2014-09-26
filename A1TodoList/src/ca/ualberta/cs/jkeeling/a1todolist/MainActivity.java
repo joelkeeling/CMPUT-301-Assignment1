@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
 		textBox = (EditText) findViewById(R.id.AddTextBox);
 		optionsBtn = (Button) findViewById(R.id.OptionsButton);
 		fdm = new FileDataManager(this.getApplicationContext());		
-		GenerateTDList();
+		generateTDList();
 	}
 
 	@Override
@@ -56,7 +56,7 @@ public class MainActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void GenerateTDList(){
+	private void generateTDList(){
 		//Get Items		
 		allItemsList = fdm.loadItems();		
 		for (TDItem item : allItemsList){
@@ -181,7 +181,7 @@ public class MainActivity extends Activity {
 		sendEmail(bodyText);
 	}
 	
-	public void sendEmail(String bodyText){
+	private void sendEmail(String bodyText){
 		Intent intent = new Intent(Intent.ACTION_SEND);
 		intent.setType("message/rfc822");
 		intent.putExtra(Intent.EXTRA_SUBJECT, "To Do List");
@@ -193,7 +193,7 @@ public class MainActivity extends Activity {
 		}
 	}
 	
-	public List<TDItem> getSelected(){
+	private List<TDItem> getSelected(){
 		List<TDItem> selectedItemsList = new ArrayList<TDItem>();
 		for (TDItem item : activeItemsList){
 			if (item.getSelected() == true){
@@ -203,7 +203,7 @@ public class MainActivity extends Activity {
 		return selectedItemsList;
 	}
 	
-	public TDItem getTargetItem(View v){
+	private TDItem getTargetItem(View v){
 		View parent = (View)v.getParent();			
 		CustomTextView text = (CustomTextView) parent.findViewById(R.id.textView);
 		String uId = (String) text.getUId();

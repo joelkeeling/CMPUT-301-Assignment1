@@ -30,7 +30,7 @@ public class ArchiveActivity extends Activity {
 		setContentView(R.layout.activity_archive);
 		optionsBtn = (Button) findViewById(R.id.OptionsButton);	
 		fdm = new FileDataManager(this.getApplicationContext());
-		GenerateArchiveList();
+		generateArchiveList();
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class ArchiveActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void GenerateArchiveList(){
+	private void generateArchiveList(){
 		//Get Items
 		allItemsList = fdm.loadItems();		
 		for (TDItem item : allItemsList){
@@ -160,7 +160,7 @@ public class ArchiveActivity extends Activity {
 		sendEmail(bodyText);
 	}
 	
-	public void sendEmail(String bodyText){
+	private void sendEmail(String bodyText){
 		Intent intent = new Intent(Intent.ACTION_SEND);
 		intent.setType("message/rfc822");
 		intent.putExtra(Intent.EXTRA_SUBJECT, "To Do List");
@@ -172,7 +172,7 @@ public class ArchiveActivity extends Activity {
 		}
 	}
 	
-	public List<TDItem> getSelected(){
+	private List<TDItem> getSelected(){
 		List<TDItem> selectedItemsList = new ArrayList<TDItem>();
 		for (TDItem item : archivedItemsList){
 			if (item.getSelected() == true){
@@ -182,7 +182,7 @@ public class ArchiveActivity extends Activity {
 		return selectedItemsList;
 	}
 	
-	public TDItem getTargetItem(View v){
+	private TDItem getTargetItem(View v){
 		View parent = (View)v.getParent();			
 		CustomTextView text = (CustomTextView) parent.findViewById(R.id.textView);
 		String uId = (String) text.getUId();

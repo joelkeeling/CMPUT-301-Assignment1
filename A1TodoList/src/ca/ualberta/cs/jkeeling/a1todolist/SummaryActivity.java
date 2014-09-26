@@ -60,7 +60,7 @@ public class SummaryActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void generateSummary(){
+	private void generateSummary(){
 		allItemsList = fdm.loadItems();		
 		for (TDItem item : allItemsList){
 			if (item.getArchiveState() == false){
@@ -74,7 +74,7 @@ public class SummaryActivity extends Activity {
 		setArchived();		
 	}
 	
-	public void setActive(){
+	private void setActive(){
 		Integer cCounter = 0;
 		Integer uCounter = 0;
 		for (TDItem item : activeItemsList){
@@ -90,7 +90,7 @@ public class SummaryActivity extends Activity {
 		activeUnchecked.setText("Items left to do: " + uCounter.toString());
 	}
 	
-	public void setArchived(){
+	private void setArchived(){
 		Integer cCounter = 0;
 		Integer uCounter = 0;
 		for (TDItem item : archivedItemsList){
