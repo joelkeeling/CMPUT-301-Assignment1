@@ -16,7 +16,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:text="@string/options"
-        android:onClick="OptionsMenu" />
+        android:onClick="optionsMenu" />
     
      <TextView
         android:id="@+id/active"

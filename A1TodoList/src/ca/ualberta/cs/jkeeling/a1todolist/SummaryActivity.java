@@ -1,11 +1,8 @@
 package ca.ualberta.cs.jkeeling.a1todolist;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import ca.ualberta.cs.jkeeling.a1todolist.data.FileDataManager;
 import ca.ualberta.cs.jkeeling.a1todolist.models.TDItem;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,8 +24,7 @@ public class SummaryActivity extends Activity {
 	private TextView activeUnchecked;
 	private TextView archived;
 	private TextView archivedChecked;
-	private TextView archivedUnchecked;
-	
+	private TextView archivedUnchecked;	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +37,7 @@ public class SummaryActivity extends Activity {
 		activeUnchecked= (TextView) findViewById(R.id.activeUnchecked);
 		archived= (TextView) findViewById(R.id.archived);
 		archivedChecked= (TextView) findViewById(R.id.archivedChecked);
-		archivedUnchecked= (TextView) findViewById(R.id.archivedUnchecked);
-		
+		archivedUnchecked= (TextView) findViewById(R.id.archivedUnchecked);		
 		generateSummary();
 	}
 
@@ -76,8 +71,7 @@ public class SummaryActivity extends Activity {
 			}
 		}
 		setActive();
-		setArchived();
-		
+		setArchived();		
 	}
 	
 	public void setActive(){
@@ -110,6 +104,12 @@ public class SummaryActivity extends Activity {
 		archived.setText("Number of archived items: " + archivedItemsList.size());
 		archivedChecked.setText("Archived items complete: " + cCounter.toString());
 		archivedUnchecked.setText("Archived items incomplete: " + uCounter.toString());		
+	}	
+	
+	public void optionsMenu(View v){
+		PopupMenu popup = new PopupMenu(this, optionsBtn);
+		popup.getMenuInflater().inflate(R.menu.summary_options_popup, popup.getMenu());
+		popup.show();
 	}
 	
 	public void toMain(MenuItem i){
@@ -120,11 +120,5 @@ public class SummaryActivity extends Activity {
 	public void toArchive(MenuItem i){
 		Intent intent = new Intent(this, ArchiveActivity.class);		
 		startActivity(intent);
-	}
-	
-	public void OptionsMenu(View v){
-		PopupMenu popup = new PopupMenu(this, optionsBtn);
-		popup.getMenuInflater().inflate(R.menu.summary_options_popup, popup.getMenu());
-		popup.show();
 	}
 }
