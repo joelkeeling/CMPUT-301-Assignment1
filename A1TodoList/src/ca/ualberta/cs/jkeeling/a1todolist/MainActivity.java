@@ -1,7 +1,6 @@
 package ca.ualberta.cs.jkeeling.a1todolist;
 import java.util.ArrayList;
 import java.util.List;
-
 import ca.ualberta.cs.jkeeling.a1todolist.adapters.ItemAdapter;
 import ca.ualberta.cs.jkeeling.a1todolist.data.FileDataManager;
 import ca.ualberta.cs.jkeeling.a1todolist.models.CustomTextView;
@@ -16,7 +15,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.PopupMenu;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -32,6 +30,7 @@ public class MainActivity extends Activity {
 	private ItemAdapter adapter; 
 	private Button optionsBtn;
 	private FileDataManager fdm;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -72,11 +71,10 @@ public class MainActivity extends Activity {
 		//Set adapter
 		adapter = new ItemAdapter(this, R.layout.item_row, activeItemsList);		
 		ListView listView = (ListView) findViewById(R.id.TDList);
-		listView.setAdapter(adapter);
-				
+		listView.setAdapter(adapter);				
 	}	
 		
-	public void Add(View v){
+	public void add(View v){
 		String text = textBox.getText().toString();
 		TDItem item = new TDItem(text);
 		activeItemsList.add(item);
@@ -86,7 +84,33 @@ public class MainActivity extends Activity {
 		textBox.setText("New Item Here");		
 	}
 	
-	public void OptionsMenu(View v){
+	public void delete(View v){
+		TDItem target = getTargetItem(v);
+		activeItemsList.remove(target);
+		allItemsList.remove(target);
+		fdm.saveItems(allItemsList);
+		adapter.notifyDataSetChanged();
+	}
+	
+	public void check(View v){
+		TDItem target = getTargetItem(v);
+		CheckBox checkbox = (CheckBox)v;
+		checkbox.setChecked(target.toggleChecked());
+		fdm.saveItems(allItemsList);
+	}
+	
+	public void select(View v){
+		TDItem target = getTargetItem(v);
+		if (target.toggleSelected() == true){
+			((View)v.getParent()).setBackgroundColor(Color.rgb(255, 153, 0));
+		}
+		else {
+			((View)v.getParent()).setBackgroundColor(Color.WHITE);
+		}
+		fdm.saveItems(allItemsList);
+	}
+	
+	public void optionsMenu(View v){
 		PopupMenu popup = new PopupMenu(this, optionsBtn);
 		popup.getMenuInflater().inflate(R.menu.main_options_popup, popup.getMenu());
 		popup.show();
@@ -100,17 +124,7 @@ public class MainActivity extends Activity {
 	public void toArchive(MenuItem i){		
 		Intent intent = new Intent(this, ArchiveActivity.class);		
 		startActivity(intent);
-	}		
-	
-	public List<TDItem> getSelected(){
-		List<TDItem> selectedItemsList = new ArrayList<TDItem>();
-		for (TDItem item : activeItemsList){
-			if (item.getSelected() == true){
-				selectedItemsList.add(item);
-			}
-		}
-		return selectedItemsList;
-	}
+	}	
 	
 	public void archiveAll(MenuItem i){
 		for (TDItem item : activeItemsList){
@@ -128,12 +142,8 @@ public class MainActivity extends Activity {
 		}
 		fdm.saveItems(allItemsList);
 		adapter.notifyDataSetChanged();
-	}
-	
-	public void toSelector(MenuItem i){
-		
 	}	
-	
+		
 	public void emailAll(MenuItem i){
 		for (TDItem item : allItemsList){
 			item.setSelected(true);
@@ -187,34 +197,14 @@ public class MainActivity extends Activity {
 		}
 	}
 	
-	public void removeHolder(View v){
-		textBox.setText("");
-	}
-	
-	public void Delete(View v){
-		TDItem target = getTargetItem(v);
-		activeItemsList.remove(target);
-		allItemsList.remove(target);
-		fdm.saveItems(allItemsList);
-		adapter.notifyDataSetChanged();
-	}
-	
-	public void check(View v){
-		TDItem target = getTargetItem(v);
-		CheckBox checkbox = (CheckBox)v;
-		checkbox.setChecked(target.toggleChecked());
-		fdm.saveItems(allItemsList);
-	}
-	
-	public void select(View v){
-		TDItem target = getTargetItem(v);
-		if (target.toggleSelected() == true){
-			((View)v.getParent()).setBackgroundColor(Color.rgb(255, 153, 0));
+	public List<TDItem> getSelected(){
+		List<TDItem> selectedItemsList = new ArrayList<TDItem>();
+		for (TDItem item : activeItemsList){
+			if (item.getSelected() == true){
+				selectedItemsList.add(item);
+			}
 		}
-		else {
-			((View)v.getParent()).setBackgroundColor(Color.WHITE);
-		}
-		fdm.saveItems(allItemsList);
+		return selectedItemsList;
 	}
 	
 	public TDItem getTargetItem(View v){
@@ -228,5 +218,9 @@ public class MainActivity extends Activity {
 			}
 		}
 		return target;
+	}
+	
+	public void removeHolder(View v){
+		textBox.setText("");
 	}
 }

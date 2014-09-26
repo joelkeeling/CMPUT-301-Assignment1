@@ -32,6 +32,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:text="X"
-        android:onClick="Delete" />  
+        android:onClick="delete" />  
 
 </RelativeLayout>
