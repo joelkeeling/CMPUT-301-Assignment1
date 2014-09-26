@@ -19,6 +19,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+// Class to handle the Main view. This class handles all of the functionality required on the main to do list page.
+// Such as adding, removing, emailing or archiving items. 
+// Can also navigate to the archive or summary activities
 public class MainActivity extends Activity {
 	private List<TDItem> activeItemsList = new ArrayList<TDItem>();
 	private List<TDItem> allItemsList = new ArrayList<TDItem>();

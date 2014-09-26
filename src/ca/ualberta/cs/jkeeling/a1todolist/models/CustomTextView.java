@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+// This class was created so that TextViews could store important IDs
 public class CustomTextView extends TextView{
 	private String uniqueId;
 	public CustomTextView(Context context) {

@@ -10,6 +10,7 @@ import android.content.Context;
 import android.util.Log;
 import ca.ualberta.cs.jkeeling.a1todolist.models.TDItem;
 
+// This class is the in-between for saving and loading data to the internal storage of the android system
 public class FileDataManager implements IDataManager{
 	private String filename;
 	private Context context;

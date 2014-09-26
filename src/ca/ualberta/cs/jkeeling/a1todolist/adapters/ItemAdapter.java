@@ -11,6 +11,8 @@ import ca.ualberta.cs.jkeeling.a1todolist.R;
 import ca.ualberta.cs.jkeeling.a1todolist.models.CustomTextView;
 import ca.ualberta.cs.jkeeling.a1todolist.models.TDItem;	
 
+// Custom adapter class to enable custom rows in a ListView
+// Each custom rows includes a checkbox, textview, and button
 public class ItemAdapter extends ArrayAdapter<TDItem> {
 	private List<TDItem> itemList;
 	private Context context;

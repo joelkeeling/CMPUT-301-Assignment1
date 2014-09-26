@@ -17,6 +17,9 @@ import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
+// Class to handle the Archive view. This class handles all of the functionality required on the archive page.
+// Such as removing, emailing or un-archiving items. 
+// Can also navigate to the main or summary activities
 public class ArchiveActivity extends Activity {	
 	private List<TDItem> archivedItemsList = new ArrayList<TDItem>();
 	private List<TDItem> allItemsList = new ArrayList<TDItem>();

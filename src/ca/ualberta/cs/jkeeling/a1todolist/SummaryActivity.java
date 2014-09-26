@@ -13,6 +13,10 @@ import android.widget.Button;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
+// Class to handle the Summary view. This class handles all of the functionality required on the Summary page.
+// Such as displaying all totals of active items, checked active items, unchecked active items, archived items,
+// checked archived items and unchecked archived items.
+// Can also navigate to the main or archive activities
 public class SummaryActivity extends Activity {	
 	private List<TDItem> allItemsList = new ArrayList<TDItem>();
 	private List<TDItem> activeItemsList = new ArrayList<TDItem>();

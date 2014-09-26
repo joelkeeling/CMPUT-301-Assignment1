@@ -3,6 +3,9 @@ package ca.ualberta.cs.jkeeling.a1todolist.models;
 import java.io.Serializable;
 import java.util.UUID;
 
+// A class for To Do items. 
+// Holds all of the information that is required for its use in all of the activities
+// For the most part the important attributes for display reasons are archived, checked and selected. 
 public class TDItem implements Serializable{
 	private boolean archived;
 	private boolean checked;
