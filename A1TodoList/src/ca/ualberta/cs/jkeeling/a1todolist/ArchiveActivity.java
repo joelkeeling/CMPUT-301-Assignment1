@@ -81,7 +81,8 @@ public class ArchiveActivity extends Activity {
 	}
 	
 	public void toSummary(MenuItem i){
-		
+		Intent intent = new Intent(this, SummaryActivity.class);		
+		startActivity(intent);
 	}
 	
 	public List<TDItem> getSelected(){
@@ -100,13 +101,7 @@ public class ArchiveActivity extends Activity {
 		}
 		unarchiveSelected(i);
 	}
-	
-	public void unSelectAll(){
-		for (TDItem item : allItemsList){
-			item.setSelected(false);
-		}
-	}
-	
+		
 	public void select(View v){
 		TDItem target = getTargetItem(v);
 		if (target.toggleSelected() == true){
@@ -122,6 +117,7 @@ public class ArchiveActivity extends Activity {
 		List<TDItem> itemList = getSelected();
 		for (TDItem item : itemList){
 			item.unarchive();
+			item.setSelected(false);
 			archivedItemsList.remove(item);
 		}
 		fdm.saveItems(allItemsList);

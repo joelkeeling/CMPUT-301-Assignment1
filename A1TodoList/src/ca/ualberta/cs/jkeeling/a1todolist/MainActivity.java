@@ -82,8 +82,7 @@ public class MainActivity extends Activity {
 		allItemsList.add(item);
 		fdm.saveItems(allItemsList);
 		adapter.notifyDataSetChanged();
-		textBox.setText("");
-		
+		textBox.setText("New Item Here");		
 	}
 	
 	public void OptionsMenu(View v){
@@ -93,21 +92,14 @@ public class MainActivity extends Activity {
 	}
 	
 	public void toSummary(MenuItem i){
-		
-	}
-	
-	public void toArchive(MenuItem i){
-		unSelectAll();
-		Intent intent = new Intent(this, ArchiveActivity.class);		
+		Intent intent = new Intent(this, SummaryActivity.class);		
 		startActivity(intent);
 	}
 	
-	public void unSelectAll(){
-		for (TDItem item : allItemsList){
-			item.setSelected(false);
-		}
-		fdm.saveItems(allItemsList);
-	}
+	public void toArchive(MenuItem i){		
+		Intent intent = new Intent(this, ArchiveActivity.class);		
+		startActivity(intent);
+	}		
 	
 	public List<TDItem> getSelected(){
 		List<TDItem> selectedItemsList = new ArrayList<TDItem>();
@@ -130,6 +122,7 @@ public class MainActivity extends Activity {
 		List<TDItem> itemList = getSelected();
 		for (TDItem item : itemList){
 			item.archive();
+			item.setSelected(false);
 			activeItemsList.remove(item);
 		}
 		fdm.saveItems(allItemsList);
@@ -142,6 +135,10 @@ public class MainActivity extends Activity {
 	
 	public void emailAll(MenuItem i){
 		
+	}
+	
+	public void removeHolder(View v){
+		textBox.setText("");
 	}
 	
 	public void Delete(View v){

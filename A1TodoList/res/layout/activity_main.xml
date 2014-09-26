@@ -27,7 +27,8 @@
         android:ems="10"
         android:inputType="text"
         android:maxLength="22"
-        android:text="@string/add_box" />
+        android:text="@string/add_box"
+        android:onClick="removeHolder" />
 
     <Button
         android:id="@+id/AddButton"

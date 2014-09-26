@@ -8,54 +8,53 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ca.ualberta.cs.jkeeling.a1todolist.SummaryActivity" >
 
-    <TextView
-        android:id="@+id/activeChecked"
+    
+     <TextView
+        android:id="@+id/active"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"     
-        android:layout_centerHorizontal="true"   
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="25dp"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />    
-
+        android:layout_height="wrap_content"   
+        android:layout_alignParentTop="true"                   
+        android:layout_marginTop="15dp"
+        android:text=""/>
+         
     <TextView
         android:id="@+id/activeUnchecked"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"       
-        android:layout_below="@+id/activeChecked"
-        android:layout_centerHorizontal="true" 
-        android:layout_marginTop="25dp"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_height="wrap_content"   
+        android:layout_below="@+id/active"                 
+        android:layout_marginTop="15dp"
+        android:text=""/>
+    
+    <TextView
+        android:id="@+id/activeChecked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"              
+        android:layout_below="@+id/activeUnchecked" 
+        android:layout_marginTop="15dp"
+        android:text=""/>    
     
     <TextView
         android:id="@+id/archived"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"        
-        android:layout_below="@+id/activeUnchecked"
-        android:layout_centerHorizontal="true" 
-        android:layout_marginTop="25dp"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_below="@+id/activeChecked"        
+        android:layout_marginTop="15dp"
+        android:text=""/>
 
     <TextView
         android:id="@+id/archivedChecked"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/archived"
-        android:layout_centerHorizontal="true" 
-        android:layout_marginTop="25dp"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_marginTop="15dp"
+        android:text=""/>
 
     <TextView
         android:id="@+id/archivedUnchecked"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/archivedChecked"
-        android:layout_centerHorizontal="true" 
-        android:layout_marginTop="25dp"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_below="@+id/archivedChecked"        
+        android:layout_marginTop="15dp"
+        android:text=""/>
 
 </RelativeLayout>
