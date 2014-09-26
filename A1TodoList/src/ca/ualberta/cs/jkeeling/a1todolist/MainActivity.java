@@ -5,6 +5,7 @@ import java.util.List;
 
 
 import ca.ualberta.cs.jkeeling.a1todolist.adapters.ItemAdapter;
+import ca.ualberta.cs.jkeeling.a1todolist.data.FileDataManager;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -29,12 +30,14 @@ public class MainActivity extends Activity {
 	private EditText textBox; 
 	private ItemAdapter adapter; 
 	private Button optionsBtn;
+	private FileDataManager fdm;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		textBox = (EditText) findViewById(R.id.AddTextBox);
 		optionsBtn = (Button) findViewById(R.id.OptionsButton);
+		fdm = new FileDataManager(this.getApplicationContext());
 		
 		GenerateTDList();
 	}
@@ -59,14 +62,10 @@ public class MainActivity extends Activity {
 	}
 	
 	public void GenerateTDList(){
-		//Get Items
-		//for testing!
-		TDItem item = new TDItem("Test");
-		item.setChecked(true);
-		item.setSelected(true);
-		allItemsList.add(item);
-		for (TDItem tdItem : allItemsList){
-			if (tdItem.getArchiveState() == false){
+		//Get Items		
+		allItemsList = fdm.loadItems();		
+		for (TDItem item : allItemsList){
+			if (item.getArchiveState() == false){
 				activeItemsList.add(item);
 			}
 		}
@@ -76,18 +75,13 @@ public class MainActivity extends Activity {
 		listView.setAdapter(adapter);
 				
 	}	
-	
-	
-	public void openSelector(String selectorType){
-		//Intent intent = new Intent(this, SelectorActivity.class);
-		//intent.putExtra("SELECTOR_TYPE", selectorType);
-		//startActivity(intent);
-	}
-	
+		
 	public void Add(View v){
 		String text = textBox.getText().toString();
 		TDItem item = new TDItem(text);
-		activeItemsList.add(item);		
+		activeItemsList.add(item);
+		allItemsList.add(item);
+		fdm.saveItems(allItemsList);
 		adapter.notifyDataSetChanged();
 		textBox.setText("");
 		
@@ -131,16 +125,12 @@ public class MainActivity extends Activity {
 			item.archive();
 			activeItemsList.remove(item);
 		}
+		fdm.saveItems(allItemsList);
 		adapter.notifyDataSetChanged();
 	}
 	
 	public void toSelector(MenuItem i){
-		if (i.getTitle().equals("Select for Archive")){
-			openSelector("archive");
-		}
-		else if(i.getTitle().equals("Select for Email")){
-			openSelector("email");
-		}
+		
 	}	
 	
 	public void emailAll(MenuItem i){
@@ -150,6 +140,8 @@ public class MainActivity extends Activity {
 	public void Delete(View v){
 		TDItem target = getTargetItem(v);
 		activeItemsList.remove(target);
+		allItemsList.remove(target);
+		fdm.saveItems(allItemsList);
 		adapter.notifyDataSetChanged();
 	}
 	
@@ -157,6 +149,7 @@ public class MainActivity extends Activity {
 		TDItem target = getTargetItem(v);
 		CheckBox checkbox = (CheckBox)v;
 		checkbox.setChecked(target.toggleChecked());
+		fdm.saveItems(allItemsList);
 	}
 	
 	public void select(View v){
@@ -167,6 +160,7 @@ public class MainActivity extends Activity {
 		else {
 			((View)v.getParent()).setBackgroundColor(Color.WHITE);
 		}
+		fdm.saveItems(allItemsList);
 	}
 	
 	public TDItem getTargetItem(View v){
