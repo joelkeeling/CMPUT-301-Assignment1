@@ -1,7 +1,5 @@
 package ca.ualberta.cs.jkeeling.a1todolist.adapters;
-
 import java.util.List;
-
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -13,14 +11,18 @@ import ca.ualberta.cs.jkeeling.a1todolist.R;
 import ca.ualberta.cs.jkeeling.a1todolist.R.id;
 import ca.ualberta.cs.jkeeling.a1todolist.R.layout;
 import ca.ualberta.cs.jkeeling.a1todolist.models.CustomTextView;
-import ca.ualberta.cs.jkeeling.a1todolist.models.TDItem;
-
-	
+import ca.ualberta.cs.jkeeling.a1todolist.models.TDItem;	
 
 public class ItemAdapter extends ArrayAdapter<TDItem> {
 	private List<TDItem> itemList;
 	private Context context;
 	private int resource;
+	
+	private class ViewHolder {
+		   CustomTextView name;
+		   CheckBox box;
+		  }
+	
 	public ItemAdapter(Context context, int resource, List<TDItem> itemList) {
 		super(context, resource, itemList);
 		this.context = context;
@@ -28,10 +30,7 @@ public class ItemAdapter extends ArrayAdapter<TDItem> {
 		this.resource = resource;
 		// TODO Auto-generated constructor stub
 	}
-	private class ViewHolder {
-	   CustomTextView name;
-	   CheckBox box;
-	  }
+	
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent){
 		//Used createViewFromResource + blog
@@ -43,8 +42,7 @@ public class ItemAdapter extends ArrayAdapter<TDItem> {
 			holder = new ViewHolder();						
 			holder.name = (CustomTextView) convertView.findViewById(R.id.textView);
 		    holder.box = (CheckBox) convertView.findViewById(R.id.checkBox);
-			convertView.setTag(holder);
-				 
+			convertView.setTag(holder);				 
 		}
 		else {
 			holder = (ViewHolder) convertView.getTag();
