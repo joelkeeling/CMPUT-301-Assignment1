@@ -37,8 +37,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		textBox = (EditText) findViewById(R.id.AddTextBox);
 		optionsBtn = (Button) findViewById(R.id.OptionsButton);
-		fdm = new FileDataManager(this.getApplicationContext());
-		
+		fdm = new FileDataManager(this.getApplicationContext());		
 		GenerateTDList();
 	}
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.ualberta.cs.jkeeling.a1todolist.adapters.ItemAdapter;
+import ca.ualberta.cs.jkeeling.a1todolist.data.FileDataManager;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -21,12 +22,14 @@ public class ArchiveActivity extends Activity {
 	private List<TDItem> allItemsList = new ArrayList<TDItem>();
 	private ItemAdapter adapter; 
 	private Button optionsBtn;
+	private FileDataManager fdm;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_archive);
-		optionsBtn = (Button) findViewById(R.id.OptionsButton);		
+		optionsBtn = (Button) findViewById(R.id.OptionsButton);	
+		fdm = new FileDataManager(this.getApplicationContext());
 		GenerateArchiveList();
 	}
 
@@ -51,14 +54,9 @@ public class ArchiveActivity extends Activity {
 	
 	public void GenerateArchiveList(){
 		//Get Items
-		//for testing!
-		TDItem item = new TDItem("Test");
-		item.setChecked(true);
-		item.setSelected(true);
-		item.archive();
-		allItemsList.add(item);
-		for (TDItem tdItem : allItemsList){
-			if (tdItem.getArchiveState() == true){
+		allItemsList = fdm.loadItems();		
+		for (TDItem item : allItemsList){
+			if (item.getArchiveState() == true){
 				archivedItemsList.add(item);
 			}
 		}
@@ -108,12 +106,15 @@ public class ArchiveActivity extends Activity {
 			item.unarchive();
 			archivedItemsList.remove(item);
 		}
+		fdm.saveItems(allItemsList);
 		adapter.notifyDataSetChanged();
 	}
 	
 	public void Delete(View v){
 		TDItem target = getTargetItem(v);
 		archivedItemsList.remove(target);
+		allItemsList.remove(target);
+		fdm.saveItems(allItemsList);
 		adapter.notifyDataSetChanged();
 	}
 	
