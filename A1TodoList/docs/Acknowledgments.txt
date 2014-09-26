@@ -1,0 +1,54 @@
+Acknowledgments
+This list includes any sources I may have used excluding Java and Android API and Documentation
+
+Code Interpreted from:
+
+Subject: Proper Use of custom adpater:
+Author: Romain Guy
+Source: http://www.youtube.com/watch?v=N6YdwzAvwOA
+
+Subject: Making CustomTextView
+Author: SuN(http://stackoverflow.com/users/1222926/sun)
+Source: http://stackoverflow.com/questions/9477336/how-to-make-custom-textview
+
+Subject: Custom Dropdown menu
+Author: shylendra(http://stackoverflow.com/users/2462531/shylendra)
+Source: http://stackoverflow.com/questions/21329132/android-custom-dropdown-popup-menu
+
+Subject: Data Management + General design
+Author: Victor Guana
+Source: https://github.com/guana/LonelyTwitter3
+
+Subject: System Storage
+Source:http://developer.android.com/guide/topics/data/data-storage.html
+
+Subject: Switching activities
+Source: http://developer.android.com/training/basics/firstapp/starting-activity.html
+
+
+Other items used for reference:
+
+Subject: General Understanding
+Author: Abram Hindle
+Source: In class and http://www.youtube.com/playlist?list=PL240uJOh_Vb4PtMZ0f7N8ACYkCLv0673O
+
+Subject: Using notifyDataSetChanged
+Author: blinfstuff(http://stackoverflow.com/users/474883/blindstuff)
+Source: http://stackoverflow.com/questions/4198425/updating-the-list-view-when-the-adapter-data-changes/4198569#4198569
+
+Subject: Change background
+Author: KaHeL(http://stackoverflow.com/users/813420/kahel)
+Source: http://stackoverflow.com/questions/16976431/change-background-color-of-selected-item-on-a-listview
+
+Subject: Checkbox checked attribute
+Author: MH.(http://stackoverflow.com/users/1029225/mh) 
+Source: http://stackoverflow.com/questions/10343601/set-default-value-checkbox-android
+
+Subject: Making Textview clickable
+Author: Sameer(http://stackoverflow.com/users/683261/sameer)
+Source: http://stackoverflow.com/questions/9079170/textview-onclick-not-working
+
+Subject: Custom Adapter
+Source: http://www.mysamplecode.com/2012/07/android-listview-checkbox-example.html
+
+

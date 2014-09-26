@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	private List<TDItem> activeItemsList = new ArrayList<TDItem>();
@@ -132,7 +133,55 @@ public class MainActivity extends Activity {
 	}	
 	
 	public void emailAll(MenuItem i){
+		for (TDItem item : allItemsList){
+			item.setSelected(true);
+		}
+		emailSelected(i);
+	}
+	
+	public void emailSelected(MenuItem i){	
+		String bodyText = "To do List\n\n";
+		bodyText = bodyText + "Active Items:\n";
+		for (TDItem item : activeItemsList){
+			if(item.getSelected()){
+				if(item.getChecked()){
+					bodyText = bodyText + "[x]";
+				}
+				else{
+					bodyText = bodyText + "[ ]";
+				}
+				bodyText = bodyText + item.getName() + "\n";					
+			}
+		}
+		bodyText = bodyText + "\nArchived Items:\n";
+		for (TDItem item : allItemsList){
+			if(item.getArchiveState()){
+				if(item.getSelected()){
+					if(item.getChecked()){
+						bodyText = bodyText + "[x]";
+					}
+					else{
+						bodyText = bodyText + "[ ]";
+					}
+					bodyText = bodyText + item.getName() + "/n";
+				}
+					
+			}
+		}
 		
+		sendEmail(bodyText);
+	}
+	
+	public void sendEmail(String bodyText){
+		Intent intent = new Intent(Intent.ACTION_SEND);
+		intent.setType("message/rfc822");
+		intent.putExtra(Intent.EXTRA_SUBJECT, "To Do List");
+		intent.putExtra(Intent.EXTRA_TEXT, bodyText);
+		try {
+		    startActivity(Intent.createChooser(intent, "Send mail..."));
+		} catch (android.content.ActivityNotFoundException ex) {
+		    Toast.makeText(this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+		}
 	}
 	
 	public void removeHolder(View v){

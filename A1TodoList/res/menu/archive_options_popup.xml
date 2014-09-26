@@ -16,7 +16,7 @@
     <item
        android:id="@+id/SelectEmail"
        android:title="@string/select_email"
-       android:onClick="toSummary"/>
+       android:onClick="emailSelected"/>
     <item
        android:id="@+id/AllUarchive"
        android:title="@string/all_unarchive"
@@ -24,6 +24,6 @@
     <item
        android:id="@+id/AllEmail"
        android:title="@string/all_email"
-       android:onClick="toSummary"/>  
+       android:onClick="emailAll"/>  
        
 </menu>
